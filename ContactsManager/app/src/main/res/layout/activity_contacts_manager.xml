@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id = "@+id/container1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <Button
+            android:id = "@+id/showFields"
+            android:layout_width="254dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="150dp"
+            android:text="Show Additional Fields"></Button>
+
+        <EditText
+            android:id = "@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint = "Name"
+            >
+
+        </EditText>
+
+        <EditText
+            android:id = "@+id/phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint = "Phone Number"
+            android:enabled = "true"
+            >
+
+        </EditText>
+
+        <EditText
+            android:id = "@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint = "Email"
+            >
+
+        </EditText>
+
+        <EditText
+            android:id = "@+id/address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint = "Address"
+            >
+
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+            <Button
+                android:id = "@+id/save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                >
+            </Button>
+
+            <Button
+                android:id = "@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                >
+
+            </Button>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id = "@+id/container2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            >
+
+            <EditText
+                android:id = "@+id/job"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint = "Job Title"
+                >
+
+            </EditText>
+
+            <EditText
+                android:id = "@+id/company"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint = "Company"
+                >
+
+            </EditText>
+
+            <EditText
+                android:id = "@+id/website"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint = "Website"
+                >
+
+            </EditText>
+
+            <EditText
+                android:id = "@+id/im"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint = "IM"
+                >
+
+            </EditText>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>
