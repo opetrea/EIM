@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PhoneDialer</string>
+    <string name="title_activity_phone_dialer">PhoneDialerActivity</string>
 </resources>
