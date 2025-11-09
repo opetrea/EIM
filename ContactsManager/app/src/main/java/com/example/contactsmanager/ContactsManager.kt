@@ -42,6 +42,7 @@ class ContactsManager : AppCompatActivity() {
             }
 
             R.id.cancel -> {
+                setResult(RESULT_CANCELED)
                 finish()
             }
 
@@ -54,6 +55,9 @@ class ContactsManager : AppCompatActivity() {
                         putExtra(ContactsContract.Intents.Insert.POSTAL, address.text.toString())
                         putExtra(ContactsContract.Intents.Insert.JOB_TITLE, job.text.toString())
                         putExtra(ContactsContract.Intents.Insert.COMPANY, company.text.toString())
+
+                    setResult(RESULT_OK)
+                    finish()
                 }
 
                 val contactData = ArrayList<ContentValues>().apply {
@@ -101,7 +105,12 @@ class ContactsManager : AppCompatActivity() {
         save.setOnClickListener(funcListener)
         cancel.setOnClickListener(funcListener)
 
-
+        val intent = intent
+        if (intent != null && intent.hasExtra("ro.pub.cs.systems.eim.lab04.contactsmanager.PHONE_NUMBER_KEY")) {
+            val phone = intent.getStringExtra("ro.pub.cs.systems.eim.lab04.contactsmanager.PHONE_NUMBER_KEY")
+            phoneNumber.setText(phone)
+            phoneNumber.isEnabled = false  // 🔹 câmpul devine needitabil
+        }
 
 
     }

@@ -21,10 +21,16 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.phonedialer.ui.theme.PhoneDialerTheme
 import android.Manifest
+import android.widget.Toast
 
 
 class PhoneDialerActivity : ComponentActivity() {
     private lateinit var phoneNumberEditText: EditText
+
+    companion object {
+        const val CONTACTS_MANAGER_REQUEST_CODE = 201
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +64,7 @@ class PhoneDialerActivity : ComponentActivity() {
         // Butonul de anulare
         findViewById<View>(R.id.cirlce).setOnClickListener(listener)
 
+        findViewById<View>(R.id.agenda).setOnClickListener(listener)
     }
 
     // Clasa internacare trateaza click-ul pe butoanele numerice
@@ -87,6 +94,22 @@ class PhoneDialerActivity : ComponentActivity() {
 
                 R.id.cirlce -> {
                     finish()
+                }
+
+                R.id.agenda -> {
+                    val phoneNumber = phoneNumberEditText.text.toString()
+                    if (phoneNumber.isNotEmpty()) {
+                        // Intentia care lanseaza aplicatia ContactsManager
+                        val intent = Intent("ro.pub.cs.systems.eim.lab04.contactsmanager.intent.action.ContactsManagerActivity")
+                        intent.putExtra("ro.pub.cs.systems.eim.lab04.contactsmanager.PHONE_NUMBER_KEY", phoneNumber)
+                        startActivityForResult(intent, CONTACTS_MANAGER_REQUEST_CODE)
+                    } else {
+                        Toast.makeText(
+                            applicationContext,
+                            getString(R.string.phone_error),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
             }
         }
